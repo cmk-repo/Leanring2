@@ -23,6 +23,7 @@ function Appbar() {
   return <div>
     <div>
       <button onClick={() => {
+
         navigate("/");
       }}>Landing page</button>
 

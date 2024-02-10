@@ -18,6 +18,7 @@ function App() {
 }
 
 function Count() {
+  // no props are sent to children here
   return <div>
     <CountRenderer />
     <Buttons />

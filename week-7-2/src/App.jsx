@@ -12,7 +12,7 @@ function App() {
     </div>
   )
 }
-
+// react-hookforms = > formik
 function Count() {
   console.log("re-render");
   return <div>
@@ -29,18 +29,31 @@ function CountRenderer() {
       {count}
     </b>
     <EvenCountRenderer />
+    <EvenCountRenderer2 />
   </div>
 }
 
+
+
 function EvenCountRenderer() {
-  const isEven = useRecoilValue(evenSelector);
+  const count = useRecoilValue(countAtom); // pick and choose what is needed for the compoenent
+  // not optimal use selector
+  return <div>
+    {(count % 2 == 0) ? "1- It is EVEN" : "1- Its is ODD"}
+  </div>
+}
+
+
+function EvenCountRenderer2() {
+  const isEven = useRecoilValue(evenSelector); // pick and choose what is needed for the compoenent
 
   return <div>
-    {isEven ? "It is even" : null}
+    {isEven ? "2- It is EVEN" : "2- Its is ODD"}
   </div>
 }
 
 function Buttons() {
+  // const [ count,setCount] = useRecoilState(countAtom); this will rerender the whole button not req
   const setCount = useSetRecoilState(countAtom);
   console.log("buttons re-rendererd");
 
